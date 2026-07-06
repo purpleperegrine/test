@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Title</title>
+<style>
+  :root {
+    --text: #111111;
+    --bg: #f4f4f5;
+    --card: #ffffff;
+    --muted: #6b6b6b;
+    --border: #e8e8e8;
+    --max-width: 680px;
+    --radius: 20px;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.12);
+    --shadow-hover: 0 1px 2px rgba(0, 0, 0, 0.05), 0 20px 40px -14px rgba(0, 0, 0, 0.16);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 7rem 1.5rem 5rem;
+  }
+
+  h1 {
+    font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+  }
+
+  h2 {
+    font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 2.75rem 0 0.75rem;
+  }
+
+  p {
+    font-family: Google Sans Flex, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    margin: 0 0 1.25rem;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin: 0 0 2.5rem;
+  }
+
+  a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  code {
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: #f0f0f1;
+    padding: 0.15em 0.4em;
+    border-radius: 5px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3rem 0;
+  }
+
+  footer {
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  .post {
+    margin: 0 0 2.5rem;
+    padding: 2.75rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .post:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .post figure {
+    margin: 2rem calc(-1 * 2.75rem);
+  }
+
+  .post figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .post figure figcaption {
+    margin: 0.75rem 2.75rem 0;
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    background: rgba(244, 244, 245, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: transform 0.25s ease;
+    z-index: 100;
+  }
+
+  .site-header.is-visible {
+    transform: translateY(0);
+  }
+
+  .site-header-inner {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .site-header-logo {
+    height: 32px;
+    width: 32px;
+    object-fit: contain;
+    margin-right: 0.75rem;
+  }
+
+  .site-header-title {
+    font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  @media (max-width: 640px) {
+    .post {
+      padding: 1.75rem;
+      border-radius: 16px;
+    }
+
+    .post figure {
+      margin: 1.75rem calc(-1 * 1.75rem);
+    }
+
+    .post figure figcaption {
+      margin: 0.75rem 1.75rem 0;
+    }
+
+  }
+</style>
+</head>
+<body>
+<header class="site-header" id="site-header">
+  <div class="site-header-inner">
+    <!-- Swap this <a> for an <img class="site-header-logo" src="yourlogo.png" alt="..."> once the 150x150 logo is ready -->
+    <a class="site-header-title" href="#">ghub/purpleperegrine</a>
+  </div>
+</header>
+<main>
+  <article class="post">
+    <h1>My first small steps</h1>
+    <p class="subtitle">One giant leap for mankind</p>
+
+    <figure>
+      <img src="hopefulharrier.png" alt="Cawww!">
+      <figcaption>beautiful, majestic creature</figcaption>
+    </figure>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies rhoncus lectus, at placerat est ornare ut. Etiam dictum sapien ut ante molestie, non gravida orci eleifend. Sed ut nunc id velit malesuada tincidunt sit amet a dolor. Praesent vestibulum augue sollicitudin magna interdum, vitae vehicula felis consequat. Integer vitae porta orci. Vestibulum dapibus egestas convallis. Morbi vehicula viverra ipsum, a aliquet arcu. Integer ut augue eu eros tincidunt aliquam. Vestibulum egestas sit amet dui eget gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+ <h2>Section Heading</h2>
+Vivamus sodales, arcu a vestibulum elementum, orci augue molestie eros, in elementum sapien diam ac est. Aliquam finibus leo vitae bibendum viverra. Curabitur malesuada pretium eleifend. Vestibulum nisl lorem, lobortis vel lectus vel, commodo viverra ex. Sed tristique sollicitudin augue, sit amet malesuada diam luctus sit amet. Aenean sed est vel neque fermentum vestibulum ut nec tortor. Proin et mi dolor. Nam luctus enim ut nunc pretium, at fermentum augue egestas. Cras pellentesque sagittis arcu nec tempor. Nulla quis orci porttitor, convallis ex a, pretium ipsum. Nunc pharetra aliquet augue, in mattis nisi vehicula et. Proin molestie enim sem, id venenatis tortor malesuada sit amet. Phasellus erat magna, suscipit a tristique in, scelerisque ut est. Nullam dictum dolor vel leo lobortis, ut ultrices mauris posuere. Phasellus hendrerit dignissim turpis, at blandit velit elementum ac.
+
+Fusce vestibu <h2>Section Heading</h2>lum posuere ipsum sed pharetra. Suspendisse id libero non nibh pulvinar tempor. In ultricies massa vitae consectetur accumsan. Cras tempus mollis rhoncus. In tincidunt lectus at ligula molestie, quis interdum est porta. Praesent semper scelerisque turpis nec maximus. Sed rutrum metus ligula, sit amet porta tellus maximus viverra. Duis suscipit vehicula metus, accumsan tincidunt metus mattis vitae.
+ <h2>Section Heading</h2>
+Fusce finibus nulla et ornare imperdiet. Cras eu enim commodo, semper orci in, fringilla eros. Maecenas gravida interdum diam vel volutpat. Morbi pretium, massa vitae consequat congue, diam eros maximus neque, vitae imperdiet augue ex non nisl. Duis nibh nulla, dictum pellentesque egestas id, faucibus nec enim. Cras quis iaculis nunc. Suspendisse a nunc ut tortor lobortis tempor. Quisque feugiat eleifend nulla, nec maximus odio placerat sed. Mauris quis convallis dolor. Sed ut pellentesque dui. Mauris non ante dolor. Nullam lacinia lacinia ex in ullamcorper. Vivamus semper quam a tortor dignissim elementum. Fusce lorem nisi, consectetur eu neque vel, varius tempor lectus.
+ <h2>Section Heading</h2>
+Nam nec elementum libero. Vivamus lobortis interdum lorem, in tempus eros convallis sit amet. Vestibulum nec nisl tincidunt, pellentesque orci ac, volutpat erat. Pellentesque vehicula mattis lacus. Praesent leo risus, condimentum non purus dictum, venenatis convallis eros. Nulla fringilla urna tincidunt libero bibendum venenatis. Nullam id iaculis urna, ut malesuada velit. Curabitur tincidunt luctus est, vitae dictum sem egestas in. Maecenas maximus, dui id efficitur dictum, risus felis consectetur </p>
+    <p>
+      This is a paragraph of body text. Keep line length around 60&ndash;75 characters
+      for readability &mdash; that's what the <code>max-width</code> on <code>main</code> controls.
+    </p>
+
+    <h2>Section Heading</h2>
+    <p>
+      Another paragraph. Minimalist design leans on whitespace and type hierarchy
+      rather than borders, shadows, or color to create structure.
+    </p>
+ 
+  </article>
+
+  <article class="post">
+    <h1>Second Post Title</h1>
+    <p class="subtitle">Posts stack with a hairline divider between them &mdash; no image required.</p>
+
+    <p>
+      This second post has no <code>&lt;figure&gt;</code>, just to show the <code>.post</code>
+      spacing and divider hold up on their own. Add or drop the image per post as needed.
+    </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies rhoncus lectus, at placerat est ornare ut. Etiam dictum sapien ut ante molestie, non gravida orci eleifend. Sed ut nunc id velit malesuada tincidunt sit amet a dolor. Praesent vestibulum augue sollicitudin magna interdum, vitae vehicula felis consequat. Integer vitae porta orci. Vestibulum dapibus egestas convallis. Morbi vehicula viverra ipsum, a aliquet arcu. Integer ut augue eu eros tincidunt aliquam. Vestibulum egestas sit amet dui eget gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+<h2>Section Heading</h2>
+Vivamus sodales, arcu a vestibulum elementum, orci augue molestie eros, in elementum sapien diam ac est. Aliquam finibus leo vitae bibendum viverra. Curabitur malesuada pretium eleifend. Vestibulum nisl lorem, lobortis vel lectus vel, commodo viverra ex. Sed tristique sollicitudin augue, sit amet malesuada diam luctus sit amet. Aenean sed est vel neque fermentum vestibulum ut nec tortor. Proin et mi dolor. Nam luctus enim ut nunc pretium, at fermentum augue egestas. Cras pellentesque sagittis arcu nec tempor. Nulla quis orci porttitor, convallis ex a, pretium ipsum. Nunc pharetra aliquet augue, in mattis nisi vehicula et. Proin molestie enim sem, id venenatis tortor malesuada sit amet. Phasellus erat magna, suscipit a tristique in, scelerisque ut est. Nullam dictum dolor vel leo lobortis, ut ultrices mauris posuere. Phasellus hendrerit dignissim turpis, at blandit velit elementum ac.
+<h2>Section Heading</h2>
+Fusce vestibulum posuere ipsum sed pharetra. Suspendisse id libero non nibh pulvinar tempor. In ultricies massa vitae consectetur accumsan. Cras tempus mollis rhoncus. In tincidunt lectus at ligula molestie, quis interdum est porta. Praesent semper scelerisque turpis nec maximus. Sed rutrum metus ligula, sit amet porta tellus maximus viverra. Duis suscipit vehicula metus, accumsan tincidunt metus mattis vitae.
+<h2>Section Heading</h2>
+Fusce finibus nulla et ornare imperdiet. Cras eu enim commodo, semper orci in, fringilla eros. Maecenas gravida interdum diam vel volutpat. Morbi pretium, massa vitae consequat congue, diam eros maximus neque, vitae imperdiet augue ex non nisl. Duis nibh nulla, dictum pellentesque egestas id, faucibus nec enim. Cras quis iaculis nunc. Suspendisse a nunc ut tortor lobortis tempor. Quisque feugiat eleifend nulla, nec maximus odio placerat sed. Mauris quis convallis dolor. Sed ut pellentesque dui. Mauris non ante dolor. Nullam lacinia lacinia ex in ullamcorper. Vivamus semper quam a tortor dignissim elementum. Fusce lorem nisi, consectetur eu neque vel, varius tempor lectus.
+<h2>Section Heading</h2>
+Nam nec elementum libero. Vivamus lobortis interdum lorem, in tempus eros convallis sit amet. Vestibulum nec nisl tincidunt, pellentesque orci ac, volutpat erat. Pellentesque vehicula mattis lacus. Praesent leo risus, condimentum non purus dictum, venenatis convallis eros. Nulla fringilla urna tincidunt libero bibendum venenatis. Nullam id iaculis urna, ut malesuada velit. Curabitur tincidunt luctus est, vitae dictum sem egestas in. Maecenas maximus, dui id efficitur dictum, risus felis consectetur </p>
+       <br>
+    <p>
+    <figure><img src="purpleperegrine.png" alt="Cawww!">
+    <figcaption>purple bird</figcaption></figure>
+    </p>
+  </article>
+
+  <hr>
+
+  <footer>
+    &copy; 2026 ghub/purpleperegrine
+  </footer>
+</main>
+<script>
+  const siteHeader = document.getElementById('site-header');
+  const SCROLL_THRESHOLD = 500;
+
+  const toggleSiteHeader = () => {
+    siteHeader.classList.toggle('is-visible', window.scrollY > SCROLL_THRESHOLD);
+  };
+
+  window.addEventListener('scroll', toggleSiteHeader, { passive: true });
+  toggleSiteHeader();
+</script>
+</body>
+</html>
